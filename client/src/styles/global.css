@@ -1,0 +1,22 @@
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  overflow-x: hidden;
+  font-family: 'Inter', 'Roboto', Arial, sans-serif;
+  background: #f3f4f6;
+}
+
+* {
+  box-sizing: inherit;
+}
+
+html {
+  width: 100vw;
+  overflow-x: hidden;
+}
+
+#root {
+  width: 100vw;
+  overflow-x: hidden;
+}

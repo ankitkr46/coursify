@@ -1,0 +1,176 @@
+/* === Navbar Styling === */
+.navbar {
+  width: 100%;
+  background: #1f2937; /* dark gray */
+  padding: 15px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #fff;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.navbar-logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #facc15; /* yellow accent */
+  cursor: pointer;
+}
+
+.navbar-links {
+  display: flex;
+  gap: 25px;
+}
+
+.navbar-links a {
+  color: #e5e7eb;
+  text-decoration: none;
+  font-size: 1rem;
+  transition: color 0.2s ease;
+}
+
+.navbar-links a:hover {
+  color: #facc15;
+}
+
+/* === Home Page Styling === */
+.home-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px 20px;
+  background: #f3f4f6; /* light gray */
+  min-height: 100vh;
+}
+
+.home-header {
+  text-align: center;
+  margin: 60px 0 40px;
+}
+
+.home-header h1 {
+  font-size: 2.8rem;
+  color: #1f2937;
+  margin-bottom: 12px;
+}
+
+.home-header p {
+  font-size: 1.2rem;
+  color: #4b5563;
+}
+
+/* === Modern Home Styling === */
+.home-modern {
+  min-height: 100vh;
+  background: #f3f4f6;
+  font-family: 'Inter', 'Roboto', Arial, sans-serif;
+}
+
+.hero {
+  text-align: center;
+  padding: 60px 20px 40px 20px;
+  background: linear-gradient(90deg, #2563eb 0%, #1d4ed8 100%);
+  color: #fff;
+  border-radius: 0 0 32px 32px;
+}
+
+.brand {
+  color: #10b981;
+}
+
+.hero-actions {
+  margin-top: 32px;
+}
+
+.btn-primary, .btn-secondary {
+  margin: 0 12px;
+  padding: 14px 36px;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  border: none;
+  cursor: pointer;
+  transition: background 0.2s;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.btn-primary {
+  background: #fff;
+  color: #2563eb;
+}
+
+.btn-primary:hover {
+  background: #e0e7ff;
+}
+
+.btn-secondary {
+  background: #10b981;
+  color: #fff;
+}
+
+.btn-secondary:hover {
+  background: #059669;
+}
+
+/* === Section Cards === */
+.home-sections {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 30px;
+  width: 100%;
+  max-width: 1100px;
+  padding-bottom: 50px;
+}
+
+.home-card {
+  background: #ffffff;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.08);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.home-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0px 6px 16px rgba(0, 0, 0, 0.12);
+}
+
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 28px;
+  max-width: 1100px;
+  margin: 40px auto;
+  padding: 0 20px;
+}
+
+.feature-card {
+  background: #fff;
+  padding: 28px 20px;
+  border-radius: 16px;
+  box-shadow: 0px 4px 16px rgba(0,0,0,0.08);
+  text-align: center;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.feature-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0px 8px 24px rgba(0,0,0,0.12);
+}
+
+.courses-section {
+  max-width: 900px;
+  margin: 60px auto 0 auto;
+  padding: 32px 20px;
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0px 2px 8px rgba(0,0,0,0.04);
+  text-align: center;
+}
+
+.courses-section h2 {
+  color: #2563eb;
+  margin-bottom: 18px;
+}
