@@ -12,6 +12,7 @@ import Wishlist from "./pages/Wishlist";
 import Forum from "./pages/Forum";
 import AdminPanel from "./pages/AdminPanel";
 import Navbar from "./components/Navbar/Navbar";
+import Footer from "./components/Footer/Footer";
 
 function App() {
   return (
@@ -29,6 +30,7 @@ function App() {
         <Route path="/forum" element={<Forum />} />
         <Route path="/admin" element={<AdminPanel />} />
       </Routes>
+      <Footer />
     </>
   );
 }

@@ -1,10 +1,13 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import API from "../../utils/api";
 import './Login.css';
 
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
+  const navigate = useNavigate();
 
   async function handleLogin(e) {
     e.preventDefault();
@@ -12,11 +15,12 @@ const Login = () => {
       const response = await API.post("/user/login", {}, {
         headers: { username: email, password }
       });
-      alert("Login successful ✅");
       localStorage.setItem("token", response.data.token);
+      alert("Login successful ✅");
+      setError("");
+      navigate("/dashboard");
     } catch (err) {
-      console.error(err);
-      alert("Login failed ❌");
+      setError("User not found. Please sign up first.");
     }
   }
 
@@ -40,6 +44,10 @@ const Login = () => {
         />
         <button type="submit">Login</button>
       </form>
+      {error && <div style={{ color: "red", marginTop: "12px" }}>{error}</div>}
+      <div style={{ marginTop: "18px", textAlign: "center" }}>
+        If you are new, <span style={{ color: "#2563eb", cursor: "pointer", textDecoration: "underline" }} onClick={() => navigate("/register")}>Sign up here</span>
+      </div>
     </div>
   );
 };
