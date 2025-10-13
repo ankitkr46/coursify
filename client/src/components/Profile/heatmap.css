@@ -1,0 +1,24 @@
+.heatmap-container {
+  margin: 32px 0;
+}
+.heatmap-container h3 {
+  color: #2563eb;
+  margin-bottom: 12px;
+}
+.heatmap-grid {
+  display: grid;
+  grid-template-columns: repeat(15, 18px);
+  grid-template-rows: repeat(2, 18px);
+  gap: 6px;
+  justify-content: center;
+}
+.heatmap-cell {
+  width: 18px;
+  height: 18px;
+  background: #e5e7eb;
+  border-radius: 4px;
+  transition: background 0.2s;
+}
+.heatmap-cell.active {
+  background: #10b981;
+}

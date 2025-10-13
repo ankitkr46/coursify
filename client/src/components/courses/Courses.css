@@ -11,6 +11,23 @@
   color: #333;
 }
 
+.course-section {
+  margin-bottom: 28px;
+  padding: 18px;
+  background: #fff;
+  border-radius: 12px;
+}
+
+.section-header {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 12px;
+}
+
+.section-header h3 { margin: 0; }
+.section-sub { color: #6b7280; margin: 0; }
+
 .course-list {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));

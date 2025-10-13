@@ -6,7 +6,6 @@ import Login from "./components/Login/Login";
 import Register from "./components/Register/Register";
 import Courses from "./components/courses/Courses";
 import Dashboard from "./pages/Dashboard";
-import CourseDetails from "./pages/CourseDetails";
 import Profile from "./pages/Profile";
 import Wishlist from "./pages/Wishlist";
 import Forum from "./pages/Forum";
@@ -22,8 +21,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
-        <Route path="/courses" element={<Courses />} />
-        <Route path="/courses/:courseId" element={<CourseDetails />} />
+  <Route path="/courses" element={<Courses />} />
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/profile" element={<Profile />} />
         <Route path="/wishlist" element={<Wishlist />} />

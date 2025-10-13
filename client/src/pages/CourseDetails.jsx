@@ -1,13 +1,7 @@
 import React from "react";
+import { Navigate } from "react-router-dom";
 
-const CourseDetails = () => {
-  // Placeholder for course details
-  return (
-    <div className="course-details-container">
-      <h2>Course Details</h2>
-      <p>Show syllabus, instructor info, reviews, enroll button here.</p>
-    </div>
-  );
-};
+// Course details page removed — redirecting to the main courses listing.
+const CourseDetails = () => <Navigate to="/courses" replace />;
 
 export default CourseDetails;
