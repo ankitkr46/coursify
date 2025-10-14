@@ -1,176 +1,116 @@
-/* === Navbar Styling === */
+/* Clean, validated Home page styling */
+
+:root {
+  --bg: #f3f4f6;
+  --brand: #2563eb;
+  --accent: #10b981;
+  --muted: #6b7280;
+  --card-shadow: 0 6px 18px rgba(17,24,39,0.06);
+}
+
+/* Navbar (small, in-case imported by layout) */
 .navbar {
   width: 100%;
-  background: #1f2937; /* dark gray */
-  padding: 15px 40px;
+  background: #1f2937;
+  padding: 14px 28px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   color: #fff;
-  position: sticky;
-  top: 0;
-  z-index: 1000;
 }
 
-.navbar-logo {
-  font-size: 1.5rem;
-  font-weight: bold;
-  color: #facc15; /* yellow accent */
-  cursor: pointer;
-}
-
-.navbar-links {
-  display: flex;
-  gap: 25px;
-}
-
-.navbar-links a {
-  color: #e5e7eb;
-  text-decoration: none;
-  font-size: 1rem;
-  transition: color 0.2s ease;
-}
-
-.navbar-links a:hover {
-  color: #facc15;
-}
-
-/* === Home Page Styling === */
-.home-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 40px 20px;
-  background: #f3f4f6; /* light gray */
-  min-height: 100vh;
-}
-
-.home-header {
-  text-align: center;
-  margin: 60px 0 40px;
-}
-
-.home-header h1 {
-  font-size: 2.8rem;
-  color: #1f2937;
-  margin-bottom: 12px;
-}
-
-.home-header p {
-  font-size: 1.2rem;
-  color: #4b5563;
-}
-
-/* === Modern Home Styling === */
+/* Page shell */
 .home-modern {
   min-height: 100vh;
-  background: #f3f4f6;
+  background: var(--bg);
   font-family: 'Inter', 'Roboto', Arial, sans-serif;
+  padding-bottom: 40px;
 }
 
 .hero {
   text-align: center;
-  padding: 60px 20px 40px 20px;
-  background: linear-gradient(90deg, #2563eb 0%, #1d4ed8 100%);
+  padding: 56px 20px;
+  background: linear-gradient(90deg, var(--brand), #1d4ed8);
   color: #fff;
-  border-radius: 0 0 32px 32px;
+  border-radius: 0 0 28px 28px;
+}
+.hero h1 { margin: 0 0 8px; font-size: 2.4rem }
+.hero p { margin: 0 0 14px; color: rgba(255,255,255,0.9) }
+.brand { color: var(--accent) }
+.hero-actions { margin-top: 18px }
+.btn-primary, .btn-secondary { margin: 0 8px; padding: 10px 20px; border-radius: 8px; cursor: pointer; text-decoration: none; display: inline-block }
+.btn-primary { background: #fff; color: var(--brand) }
+.btn-secondary { background: var(--accent); color: #fff }
+
+/* Features */
+.features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px,1fr)); gap: 20px; max-width: 1100px; margin: 32px auto; padding: 0 20px }
+.feature-card { background: #fff; padding: 18px; border-radius: 12px; box-shadow: 0 6px 18px rgba(2,6,23,0.04) }
+.feature-card h3 { margin: 0 0 8px }
+.feature-card p { margin: 0; color: var(--muted) }
+
+/* Courses section */
+.courses-section { max-width: 1100px; margin: 36px auto; padding: 20px; background: #fff; border-radius: 12px; box-shadow: 0 4px 12px rgba(2,6,23,0.04) }
+.courses-section h2 { margin: 0 0 12px; color: var(--brand); text-align: left }
+
+/* Horizontal slider */
+.courses-slider { display: flex; gap: 14px; overflow-x: auto; padding: 12px 6px; -webkit-overflow-scrolling: touch; scroll-snap-type: x mandatory }
+.courses-slider::-webkit-scrollbar { height: 8px }
+.courses-slider::-webkit-scrollbar-thumb { background: rgba(0,0,0,0.12); border-radius: 8px }
+.courses-slider { scrollbar-width: thin; scrollbar-color: rgba(0,0,0,0.12) transparent }
+.course-card-slide { min-width: 360px; flex: 0 0 auto; scroll-snap-align: center }
+
+.course-card-inner { background: #fff; border-radius: 12px; padding: 16px; box-shadow: var(--card-shadow); height: 320px; display:flex; flex-direction:column; justify-content:flex-start }
+.course-card-inner h4 { margin:0 0 6px }
+.course-card-inner p { margin:0; color:var(--muted); font-size:0.95rem }
+.course-ctas { display:flex; gap:8px }
+.btn-outline { border:1px solid #e5e7eb; padding:6px 10px; border-radius:8px; color:#111827; background:transparent; text-decoration:none }
+.btn-primary { background:var(--brand); color:#fff; border:none; padding:6px 10px; border-radius:8px }
+
+/* card banner image */
+.card-banner { position: relative; height: 160px; border-radius: 10px; overflow: hidden; margin-bottom: 12px }
+.card-banner img { width: 100%; height: 100%; object-fit: cover; display:block }
+.card-banner-meta { position: absolute; top: 10px; left: 10px; right: 10px; display:flex; justify-content:space-between; align-items:center }
+
+/* Card body/content */
+.card-body { padding: 8px 4px 0 4px; display:flex; flex-direction:column; gap:8px; flex:1 }
+.card-title { margin:0; font-size:1.15rem; line-height:1.2 }
+.card-desc { margin:0; color:#475569; font-size:0.95rem }
+.card-footer { display:flex; justify-content:space-between; align-items:center; margin-top:auto }
+.price { font-weight:700; color:#0f172a }
+.tag { background: rgba(255,255,255,0.16); color: #fff; padding:6px 10px; border-radius:999px; font-size:0.85rem }
+.price { font-weight:700; color: #fff; font-size:0.92rem }
+
+/* Responsive tweaks */
+@media (max-width:720px) {
+  .hero { padding: 38px 12px }
+  .hero h1 { font-size: 1.8rem }
+  .course-card-inner { height:150px }
+  .course-card-slide { min-width:260px }
 }
 
-.brand {
-  color: #10b981;
+/* Accessibility */
+.btn-primary:focus, .btn-outline:focus, .btn-secondary:focus { outline:3px solid rgba(37,99,235,0.18); outline-offset:2px }
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .courses-slider { scroll-behavior: auto }
 }
 
-.hero-actions {
-  margin-top: 32px;
+/* Carousel-specific polish for JS-driven continuous loop */
+.courses-slider { scroll-behavior: smooth; }
+/* when JS duplicates slides we set data-duplicated="true" on the element; no extra CSS required */
+
+/* Optionally hide native scrollbar on large screens for cleaner look */
+@media (min-width: 720px) {
+  .courses-slider { scrollbar-width: none; -ms-overflow-style: none }
+  .courses-slider::-webkit-scrollbar { display: none }
 }
 
-.btn-primary, .btn-secondary {
-  margin: 0 12px;
-  padding: 14px 36px;
-  border-radius: 8px;
-  font-size: 1.1rem;
-  border: none;
-  cursor: pointer;
-  transition: background 0.2s;
-  text-decoration: none;
-  display: inline-block;
-}
+/* --------- Extension hooks (optional additions) ---------- */
+/*
+  - .moving-stage / .moving-track : for continuous marquee-style carousel
+  - .testimonials-section : add student testimonials
+  - .cta-strip : a slim footer CTA bar
+  These are intentionally not enabled by default so the page stays stable.
+*/
 
-.btn-primary {
-  background: #fff;
-  color: #2563eb;
-}
-
-.btn-primary:hover {
-  background: #e0e7ff;
-}
-
-.btn-secondary {
-  background: #10b981;
-  color: #fff;
-}
-
-.btn-secondary:hover {
-  background: #059669;
-}
-
-/* === Section Cards === */
-.home-sections {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-  gap: 30px;
-  width: 100%;
-  max-width: 1100px;
-  padding-bottom: 50px;
-}
-
-.home-card {
-  background: #ffffff;
-  padding: 25px;
-  border-radius: 12px;
-  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.08);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-.home-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0px 6px 16px rgba(0, 0, 0, 0.12);
-}
-
-.features-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 28px;
-  max-width: 1100px;
-  margin: 40px auto;
-  padding: 0 20px;
-}
-
-.feature-card {
-  background: #fff;
-  padding: 28px 20px;
-  border-radius: 16px;
-  box-shadow: 0px 4px 16px rgba(0,0,0,0.08);
-  text-align: center;
-  transition: transform 0.2s, box-shadow 0.2s;
-}
-
-.feature-card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0px 8px 24px rgba(0,0,0,0.12);
-}
-
-.courses-section {
-  max-width: 900px;
-  margin: 60px auto 0 auto;
-  padding: 32px 20px;
-  background: #fff;
-  border-radius: 16px;
-  box-shadow: 0px 2px 8px rgba(0,0,0,0.04);
-  text-align: center;
-}
-
-.courses-section h2 {
-  color: #2563eb;
-  margin-bottom: 18px;
-}
