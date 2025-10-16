@@ -18,7 +18,7 @@ const Home = () => {
     let mounted = true;
     async function fetchFeatured() {
       try {
-        const res = await API.get('/user/courses');
+  const res = await API.get('/users/courses');
         if (!mounted) return;
   const remote = res.data && res.data.courses;
   const chosen = (remote && remote.length > 0) ? remote : sampleCourses;
@@ -116,7 +116,7 @@ const Home = () => {
       <section className="hero">
         <div className="hero-inner">
           <h1>
-            Upgrade Your Skills with <span className="brand">Coursify</span>
+            Upgrade Your Coding Skills with <span className="brand">Coursify</span>
           </h1>
           <p>
             Join live classes, track your progress, and connect with a vibrant learning community.
@@ -200,6 +200,98 @@ const Home = () => {
             ))
           )}
           </div>
+      </section>
+
+      {/* Testimonials Section */}
+      <section className="testimonials-section">
+        <h2>What Our Students Say</h2>
+        <p className="testimonials-subtitle">Join thousands of learners who transformed their careers with Coursify</p>
+        
+        <div className="testimonials-grid">
+          <div className="testimonial-card">
+            <div className="testimonial-header">
+              <img src="https://i.pravatar.cc/100?img=33" alt="Priya Sharma" className="testimonial-avatar" />
+              <div className="testimonial-info">
+                <h4>Priya Sharma</h4>
+                <p className="testimonial-role">Full Stack Developer</p>
+              </div>
+            </div>
+            <div className="testimonial-rating">★★★★★</div>
+            <p className="testimonial-text">
+              "Coursify completely changed my career trajectory. The MERN stack bootcamp was incredibly detailed and the mentors were always available to help. Got placed at a top tech company within 3 months!"
+            </p>
+          </div>
+
+          <div className="testimonial-card">
+            <div className="testimonial-header">
+              <img src="https://i.pravatar.cc/100?img=12" alt="Rahul Verma" className="testimonial-avatar" />
+              <div className="testimonial-info">
+                <h4>Rahul Verma</h4>
+                <p className="testimonial-role">Blockchain Developer</p>
+              </div>
+            </div>
+            <div className="testimonial-rating">★★★★★</div>
+            <p className="testimonial-text">
+              "The blockchain course exceeded my expectations. From basics to building real DApps, everything was covered. The community support is amazing and I'm now working on Web3 projects!"
+            </p>
+          </div>
+
+          <div className="testimonial-card">
+            <div className="testimonial-header">
+              <img src="https://i.pravatar.cc/100?img=47" alt="Ananya Patel" className="testimonial-avatar" />
+              <div className="testimonial-info">
+                <h4>Ananya Patel</h4>
+                <p className="testimonial-role">DevOps Engineer</p>
+              </div>
+            </div>
+            <div className="testimonial-rating">★★★★★</div>
+            <p className="testimonial-text">
+              "Best investment I made for my career! The DevOps fundamentals course gave me hands-on experience with Docker, Kubernetes, and CI/CD. Landed my dream job as a DevOps engineer!"
+            </p>
+          </div>
+
+          <div className="testimonial-card">
+            <div className="testimonial-header">
+              <img src="https://i.pravatar.cc/100?img=68" alt="Arjun Singh" className="testimonial-avatar" />
+              <div className="testimonial-info">
+                <h4>Arjun Singh</h4>
+                <p className="testimonial-role">Frontend Developer</p>
+              </div>
+            </div>
+            <div className="testimonial-rating">★★★★★</div>
+            <p className="testimonial-text">
+              "The frontend development course was a game-changer. Clear explanations, real-world projects, and excellent support. I went from zero to building production-ready React apps in just 8 weeks!"
+            </p>
+          </div>
+
+          <div className="testimonial-card">
+            <div className="testimonial-header">
+              <img src="https://i.pravatar.cc/100?img=25" alt="Sneha Reddy" className="testimonial-avatar" />
+              <div className="testimonial-info">
+                <h4>Sneha Reddy</h4>
+                <p className="testimonial-role">Software Engineer</p>
+              </div>
+            </div>
+            <div className="testimonial-rating">★★★★★</div>
+            <p className="testimonial-text">
+              "Coursify's teaching methodology is top-notch. The projects are industry-relevant and the doubt-clearing sessions are super helpful. Highly recommend to anyone serious about coding!"
+            </p>
+          </div>
+
+          <div className="testimonial-card">
+            <div className="testimonial-header">
+              <img src="https://i.pravatar.cc/100?img=51" alt="Vikram Gupta" className="testimonial-avatar" />
+              <div className="testimonial-info">
+                <h4>Vikram Gupta</h4>
+                <p className="testimonial-role">Tech Lead</p>
+              </div>
+            </div>
+            <div className="testimonial-rating">★★★★★</div>
+            <p className="testimonial-text">
+              "Even as an experienced developer, I learned so much from the advanced courses. The depth of content and practical approach helped me level up my skills significantly!"
+            </p>
+          </div>
+        </div>
       </section>
     </div>
   );

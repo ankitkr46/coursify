@@ -42,9 +42,10 @@ const Navbar = () => {
           </>
         ) : (
           <>
-            <Link to="/admin">Admin</Link>
             <Link to="/login">Login</Link>
             <Link to="/register">Register</Link>
+            {/* Admin link only for admin role when not logged in */}
+            {role === 'admin' && <Link to="/admin">Admin</Link>}
           </>
         )}
       </div>

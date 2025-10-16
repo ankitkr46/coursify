@@ -14,7 +14,7 @@ const Profile = () => {
       // Replace with real API call for user info if available
       setUser({ name: "John Doe", email: "john@example.com", avatar: "https://randomuser.me/api/portraits/men/32.jpg" });
       try {
-        const response = await API.get("/user/purchasedCourses");
+  const response = await API.get("/users/purchasedCourses");
         setCourses(response.data.purchasedCourses || []);
       } catch (err) {
         setCourses([]);

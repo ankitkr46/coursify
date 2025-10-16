@@ -1,17 +1,21 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import API from "../../utils/api";
 import './Register.css';
 
 const Register = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const navigate = useNavigate();
 
   async function handleRegister(e) {
     e.preventDefault();
     try {
-      const response = await API.post("/user/register", { username: email, password });
-      alert("Registration successful 🎉");
-      localStorage.setItem("token", response.data.token);
+  const response = await API.post("/users/signup", { username: email, password });
+  alert("Registration successful 🎉");
+  localStorage.setItem("token", response.data.token);
+  localStorage.setItem("role", "user");
+  navigate("/dashboard");
     } catch (err) {
       console.error(err);
       alert("Registration failed ❌");

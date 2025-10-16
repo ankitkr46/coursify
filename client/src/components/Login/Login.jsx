@@ -12,10 +12,11 @@ const Login = () => {
   async function handleLogin(e) {
     e.preventDefault();
     try {
-      const response = await API.post("/user/login", {}, {
+  const response = await API.post("/users/login", {}, {
         headers: { username: email, password }
       });
       localStorage.setItem("token", response.data.token);
+      localStorage.setItem("role", "user");
       alert("Login successful ✅");
       setError("");
       navigate("/dashboard");

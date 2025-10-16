@@ -9,7 +9,7 @@ const Dashboard = () => {
   useEffect(() => {
     async function fetchPurchasedCourses() {
       try {
-        const response = await API.get("/user/purchasedCourses");
+  const response = await API.get("/users/purchasedCourses");
         setPurchasedCourses(response.data.purchasedCourses || []);
       } catch (err) {
         console.error(err);
