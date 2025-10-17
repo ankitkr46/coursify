@@ -12,6 +12,7 @@ import Forum from "./pages/Forum";
 import AdminPanel from "./pages/AdminPanel";
 import Navbar from "./components/Navbar/Navbar";
 import Footer from "./components/Footer/Footer";
+import CourseDetails from "./pages/CourseDetails";
 
 function App() {
   return (
@@ -21,7 +22,8 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
-  <Route path="/courses" element={<Courses />} />
+        <Route path="/courses" element={<Courses />} />
+        <Route path="/course/:courseId" element={<CourseDetails />} />
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/profile" element={<Profile />} />
         <Route path="/wishlist" element={<Wishlist />} />

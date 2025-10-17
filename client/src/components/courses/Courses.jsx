@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import API from "../../utils/api";
 import './courses.css';
 
@@ -15,6 +16,7 @@ const categories = ['Web Development', 'Blockchain', 'DevOps'];
 
 const Courses = () => {
   const [courses, setCourses] = useState([]);
+  const navigate = useNavigate();
 
   useEffect(() => {
     async function fetchCourses() {
@@ -23,7 +25,6 @@ const Courses = () => {
         setCourses(response.data.courses || sampleCourses);
       } catch (err) {
         console.error(err);
-        // fallback to sample data so UI still shows sections
         setCourses(sampleCourses);
       }
     }
@@ -31,19 +32,17 @@ const Courses = () => {
   }, []);
 
   function handlePurchase(course) {
-    // Wire this to a purchase/enroll flow later
     alert(`Purchase clicked for ${course.title} — ₹${course.price}`);
   }
 
   function handleViewDetail(course) {
-    // Wire this to a details page or modal later
-    alert(`View details for ${course.title}`);
+    const id = course.id || course._id;
+    navigate(`/course/${id}`);
   }
 
   return (
     <div className="courses">
       <h2>Courses</h2>
-
       {categories.map((cat) => {
         const list = courses.filter(c => c.category === cat);
         return (
@@ -52,7 +51,6 @@ const Courses = () => {
               <h3>{cat}</h3>
               <p className="section-sub">Popular {cat} paths, projects and mentor support.</p>
             </div>
-
             {list.length === 0 ? (
               <p className="no-courses">No courses in this category.</p>
             ) : (
