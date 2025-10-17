@@ -35,21 +35,9 @@ const Courses = () => {
     alert(`Purchase clicked for ${course.title} — ₹${course.price}`);
   }
 
-  function handleAddToCart(course) {
-    // Get existing cart from localStorage or initialize empty array
-    const cart = JSON.parse(localStorage.getItem('cart') || '[]');
-    
-    // Check if course already in cart
-    const exists = cart.find(item => (item.id || item._id) === (course.id || course._id));
-    if (exists) {
-      alert(`${course.title} is already in your cart!`);
-      return;
-    }
-    
-    // Add course to cart
-    cart.push(course);
-    localStorage.setItem('cart', JSON.stringify(cart));
-    alert(`${course.title} added to cart!`);
+  function handleViewDetail(course) {
+    // Wire this to a details page or modal later
+    alert(`View details for ${course.title}`);
   }
 
   return (
@@ -75,7 +63,7 @@ const Courses = () => {
                     <p>{course.description}</p>
                     <p><strong>Price:</strong> ₹{course.price}</p>
                     <div className="course-card-actions">
-                      <button onClick={() => handleAddToCart(course)} className="btn-cart">Add to Cart</button>
+                      <button onClick={() => handleViewDetail(course)} className="btn-cart">View Detail</button>
                       <button onClick={() => handlePurchase(course)} className="btn-purchase">Purchase</button>
                     </div>
                   </div>

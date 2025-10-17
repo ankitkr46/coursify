@@ -1,159 +1,33 @@
-# 🎓 Coursify - Modern Course Selling Platform
+# Coursify - Course Selling Platform
 
-A full-stack educational platform where administrators can create and publish courses, and users can browse, purchase, and track their learning progress. Built with React, Node.js, Express, and MongoDB.
+A full-stack web app for selling courses. Admins can create and manage courses; users can browse, add to cart, purchase, and track their learning.
 
-![Coursify](https://img.shields.io/badge/Status-Active-success)
-![React](https://img.shields.io/badge/React-18.3.1-blue)
-![Node.js](https://img.shields.io/badge/Node.js-Express-green)
-![MongoDB](https://img.shields.io/badge/Database-MongoDB-brightgreen)
+## Quick Start
 
-## ✨ Features
+1. **Backend Setup**
+  - `cd server && npm install`
+  - Create `.env` with:
+    - `MONGODB_URI=mongodb://localhost:27017/coursify`
+    - `JWT_SECRET=your_secret_key_here`
+    - `PORT=3000`
+  - `npm run dev`
 
-### 🎯 For Users
-- **Browse Courses** - Explore courses across Web Development, Blockchain, and DevOps
-- **User Authentication** - Secure signup/login with JWT tokens
-- **Shopping Cart** - Add courses to cart before purchase
-- **Course Purchase** - Buy courses and track purchased content
-- **Personal Dashboard** - View enrolled courses and progress
-- **Profile & Heatmap** - Track learning streaks and activity
-- **Wishlist** - Save courses for later
-- **Community Forum** - Engage with other learners
-- **Testimonials** - Read reviews from successful students
+2. **Frontend Setup**
+  - `cd ../client && npm install`
+  - `npm run dev`
 
-### 👨‍💼 For Administrators
-- **Admin Panel** - Dedicated interface for course management
-- **Create Courses** - Add new courses with title, description, price, and images
-- **Edit Courses** - Update existing course information
-- **Publish/Unpublish** - Control course visibility
-- **View All Courses** - Manage entire course catalog
+3. **Access**
+  - Frontend: http://localhost:5173
+  - Backend: http://localhost:3000
 
-### 🎨 UI/UX Highlights
-- **Modern Design** - Clean, responsive interface inspired by top ed-tech platforms
-- **Animated Course Carousel** - Auto-scrolling horizontal course showcase
-- **Conditional Navbar** - Dynamic navigation based on authentication status
-- **Role-based Access** - Admin-only routes and features
-- **Responsive Layout** - Mobile-first design approach
+## API Overview
 
-## 🛠️ Tech Stack
+Base URL: `http://localhost:3000`
 
-### Frontend
-- **React 18.3.1** - Modern UI library
-- **Vite** - Lightning-fast build tool
-- **React Router DOM** - Client-side routing
-- **Axios** - HTTP client for API requests
-- **CSS3** - Custom styling with modern features
-
-### Backend
-- **Node.js & Express** - Server and API framework
-- **MongoDB & Mongoose** - Database and ODM
-- **JWT** - JSON Web Tokens for authentication
-- **CORS** - Cross-origin resource sharing
-- **dotenv** - Environment variable management
-
-## 📁 Project Structure
-
+Most endpoints require a JWT token in the Authorization header:
 ```
-week-7/
-├── client/                 # React frontend (advanced)
-│   ├── src/
-│   │   ├── components/    # Reusable components
-│   │   │   ├── Navbar/
-│   │   │   ├── Login/
-│   │   │   ├── Register/
-│   │   │   ├── courses/
-│   │   │   └── ...
-│   │   ├── pages/         # Page components
-│   │   │   ├── Home.jsx
-│   │   │   ├── Dashboard.jsx
-│   │   │   ├── Profile.jsx
-│   │   │   ├── AdminPanel.jsx
-│   │   │   └── ...
-│   │   ├── utils/         # Utilities
-│   │   │   └── api.js     # Axios instance
-│   │   └── main.jsx       # App entry point
-│   └── package.json
-│
-├── client-easy/           # Simple client (for beginners)
-│
-└── server/                # Express backend
-    ├── config/
-    │   └── db.js          # MongoDB connection
-    ├── controllers/
-    │   ├── adminController.js
-    │   └── userController.js
-    ├── models/
-    │   ├── Admin.js
-    │   ├── User.js
-    │   └── Course.js
-    ├── routes/
-    │   ├── admin.js
-    │   └── user.js
-    ├── middleware/
-    │   └── auth.js        # JWT verification
-    ├── server.js          # Express app
-    └── package.json
+Authorization: Bearer <jwt_token>
 ```
-
-## 🚀 Getting Started
-
-### Prerequisites
-- Node.js (v16 or higher)
-- MongoDB (local or Atlas)
-- npm or yarn
-
-### Installation
-
-1. **Clone the repository**
-```bash
-git clone <repository-url>
-cd week-7
-```
-
-2. **Setup Backend**
-```bash
-cd server
-npm install
-
-# Create .env file
-echo "MONGODB_URI=mongodb://localhost:27017/coursify" > .env
-echo "JWT_SECRET=your_secret_key_here" >> .env
-echo "PORT=3000" >> .env
-
-# Start server
-npm run dev
-```
-
-3. **Setup Frontend**
-```bash
-cd ../client
-npm install
-
-# Start development server
-npm run dev
-```
-
-4. **Access the application**
-- Frontend: http://localhost:5173
-- Backend API: http://localhost:3000
-
-## 🎯 Frontend Clients
-
-**Two client options available:**
-- **`client`** - Full-featured React app with advanced components (recommended if familiar with React)
-- **`client-easy`** - Simplified version for beginners
-
-**Two client options available:**
-- **`client`** - Full-featured React app with advanced components (recommended if familiar with React)
-- **`client-easy`** - Simplified version for beginners
-
-## 📡 API Documentation
-
-### Base URL
-```
-http://localhost:3000
-```
-
-### Authentication
 Most endpoints require a JWT token in the Authorization header:
 ```
 Authorization: Bearer <jwt_token>
@@ -231,117 +105,7 @@ Authorization: Bearer <jwt_token>
 ```json
 {
   "message": "Course created successfully",
-  "courseId": "507f1f77bcf86cd799439011"
-}
-```
 
----
-
-### PUT `/admin/courses/:courseId`
-**Description**: Updates an existing course.
-
-**Headers**:
-```json
-{
-  "Authorization": "Bearer <jwt_token>"
-}
-```
-
-**Request Body**:
-```json
-{
-  "title": "Updated Course Title",
-  "description": "Updated description",
-  "price": 12999,
-  "imageLink": "https://example.com/new-image.jpg",
-  "published": false
-}
-```
-
-**Response**:
-```json
-{
-  "message": "Course updated successfully"
-}
-```
-
----
-
-### GET `/admin/courses`
-**Description**: Retrieves all courses (including unpublished).
-
-**Headers**:
-```json
-{
-  "Authorization": "Bearer <jwt_token>"
-}
-```
-
-**Response**:
-```json
-{
-  "courses": [
-    {
-      "_id": "507f1f77bcf86cd799439011",
-      "title": "Full Stack Web Development",
-      "description": "Master MERN stack development",
-      "price": 9999,
-      "imageLink": "https://example.com/image.jpg",
-      "published": true,
-      "category": "Web Development"
-    }
-  ]
-}
-```
-
----
-
-## 👤 User Routes
-
-### POST `/users/signup`
-**Description**: Creates a new user account.
-
-**Request Body**:
-```json
-{
-  "username": "user@example.com",
-  "password": "userPassword123"
-}
-```
-
-**Response**:
-```json
-{
-  "message": "User created successfully",
-  "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9..."
-}
-```
-
----
-
-### POST `/users/login`
-**Description**: Authenticates a user. Requires username and password in headers.
-
-**Headers**:
-```json
-{
-  "username": "user@example.com",
-  "password": "userPassword123"
-}
-```
-
-**Response**:
-```json
-{
-  "message": "Logged in successfully",
-  "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9..."
-}
-```
-
----
-
-### GET `/users/courses`
-**Description**: Lists all published courses.
 
 **Headers**:
 ```json
@@ -508,19 +272,3 @@ Contributions are welcome! Please follow these steps:
 3. Commit changes (`git commit -m 'Add AmazingFeature'`)
 4. Push to branch (`git push origin feature/AmazingFeature`)
 5. Open a Pull Request
-
-## 📄 License
-
-This project is part of a learning assignment. Feel free to use it for educational purposes.
-
-## 👨‍💻 Author
-
-
-
-## 🙏 Acknowledgments
-
-- Inspired by [100xDevs](https://app.100xdevs.com)
-- Built as part of a full-stack web development course
-- UI/UX inspiration from leading ed-tech platforms
-
----
