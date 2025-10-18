@@ -5,6 +5,7 @@ import './navbar.css';
 const Navbar = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [role, setRole] = useState(null);
+  const [theme, setTheme] = useState('light');
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -12,7 +13,19 @@ const Navbar = () => {
     const r = localStorage.getItem('role');
     setIsLoggedIn(!!token);
     setRole(r || null);
+
+    // Load theme from localStorage or default to light
+    const savedTheme = localStorage.getItem('theme') || 'light';
+    setTheme(savedTheme);
+    document.documentElement.setAttribute('data-theme', savedTheme);
   }, []);
+
+  function toggleTheme() {
+    const newTheme = theme === 'light' ? 'dark' : 'light';
+    setTheme(newTheme);
+    localStorage.setItem('theme', newTheme);
+    document.documentElement.setAttribute('data-theme', newTheme);
+  }
 
   function handleLogout() {
     localStorage.removeItem('token');
@@ -48,6 +61,15 @@ const Navbar = () => {
             {role === 'admin' && <Link to="/admin">Admin</Link>}
           </>
         )}
+        
+        {/* Theme Toggle */}
+        <button 
+          onClick={toggleTheme} 
+          className="theme-toggle"
+          aria-label="Toggle theme"
+        >
+          {theme === 'light' ? '🌙' : '☀️'}
+        </button>
       </div>
     </nav>
   );
