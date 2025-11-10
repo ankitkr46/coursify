@@ -11,7 +11,9 @@ const Register = () => {
   async function handleRegister(e) {
     e.preventDefault();
     try {
-  const response = await API.post("/users/signup", { username: email, password });
+      const response = await API.post("/users/signup", { username: email, password });
+      // notify other components in the same tab that auth changed
+      window.dispatchEvent(new Event('auth-changed'));
   alert("Registration successful 🎉");
   localStorage.setItem("token", response.data.token);
   localStorage.setItem("role", "user");

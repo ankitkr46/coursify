@@ -17,6 +17,8 @@ const Login = () => {
       });
       localStorage.setItem("token", response.data.token);
       localStorage.setItem("role", "user");
+  // notify other components in the same tab that auth changed
+  window.dispatchEvent(new Event('auth-changed'));
       alert("Login successful ✅");
       setError("");
       navigate("/dashboard");
