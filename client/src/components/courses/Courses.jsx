@@ -31,9 +31,7 @@ const Courses = () => {
     fetchCourses();
   }, []);
 
-  function handlePurchase(course) {
-    alert(`Purchase clicked for ${course.title} — ₹${course.price}`);
-  }
+  
 
   function handleViewDetail(course) {
     const id = course.id || course._id;
@@ -62,7 +60,7 @@ const Courses = () => {
                     <p><strong>Price:</strong> ₹{course.price}</p>
                     <div className="course-card-actions">
                       <button onClick={() => handleViewDetail(course)} className="btn-cart">View Detail</button>
-                      <button onClick={() => handlePurchase(course)} className="btn-purchase">Purchase</button>
+
                     </div>
                   </div>
                 ))}

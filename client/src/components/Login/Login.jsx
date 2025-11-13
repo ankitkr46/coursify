@@ -6,6 +6,7 @@ import './Login.css';
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [fullName, setFullName] = useState("");
   const [error, setError] = useState("");
   const navigate = useNavigate();
 
@@ -17,6 +18,7 @@ const Login = () => {
       });
       localStorage.setItem("token", response.data.token);
       localStorage.setItem("role", "user");
+  if (fullName) localStorage.setItem('fullName', fullName);
   // notify other components in the same tab that auth changed
   window.dispatchEvent(new Event('auth-changed'));
       alert("Login successful ✅");
@@ -37,6 +39,12 @@ const Login = () => {
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           required
+        />
+        <input
+          type="text"
+          placeholder="Enter full name (optional)"
+          value={fullName}
+          onChange={(e) => setFullName(e.target.value)}
         />
         <input
           type="password"

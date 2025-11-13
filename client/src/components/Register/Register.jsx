@@ -6,18 +6,20 @@ import './Register.css';
 const Register = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [fullName, setFullName] = useState("");
   const navigate = useNavigate();
 
   async function handleRegister(e) {
     e.preventDefault();
     try {
-      const response = await API.post("/users/signup", { username: email, password });
+      const response = await API.post("/users/signup", { username: email, password, name: fullName });
+      alert("Registration successful 🎉");
+      localStorage.setItem("token", response.data.token);
+      localStorage.setItem("role", "user");
+      if (fullName) localStorage.setItem('fullName', fullName);
       // notify other components in the same tab that auth changed
       window.dispatchEvent(new Event('auth-changed'));
-  alert("Registration successful 🎉");
-  localStorage.setItem("token", response.data.token);
-  localStorage.setItem("role", "user");
-  navigate("/dashboard");
+      navigate("/dashboard");
     } catch (err) {
       console.error(err);
       alert("Registration failed ❌");
@@ -33,6 +35,13 @@ const Register = () => {
           placeholder="Enter Email"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
+          required
+        />
+        <input
+          type="text"
+          placeholder="Enter full name"
+          value={fullName}
+          onChange={(e) => setFullName(e.target.value)}
           required
         />
         <input
