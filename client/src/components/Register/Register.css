@@ -47,3 +47,29 @@
 .register-form button:hover {
   background: #059669;
 }
+
+/* Input with toggle button for password */
+.input-with-toggle {
+  position: relative;
+  width: 100%;
+}
+
+.input-toggle-btn {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  color: #007bff;
+  cursor: pointer;
+  padding: 6px 8px;
+  height: 36px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+  z-index: 2;
+}
+
+.input-toggle-btn:focus { outline: none; }

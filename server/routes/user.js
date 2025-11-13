@@ -5,6 +5,8 @@ const userController = require('../controllers/userController');
 
 router.post('/signup', userController.signup);
 router.post('/login', userController.login);
+router.get('/me', authMiddleware, userController.me);
+router.put('/me', authMiddleware, userController.updateProfile);
 router.get('/courses', authMiddleware, userController.getCourses);
 router.post('/courses/:courseId', authMiddleware, userController.purchaseCourse);
 router.get('/purchasedCourses', authMiddleware, userController.getPurchasedCourses);

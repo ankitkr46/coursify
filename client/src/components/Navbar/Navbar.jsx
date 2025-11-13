@@ -101,10 +101,9 @@ const Navbar = () => {
       <div className="navbar-links">
         <Link to="/courses">Courses</Link>
 
-  <Link to="/purchase">Cart{cartCount > 0 ? ` (${cartCount})` : ''}</Link>
-
   {isLoggedIn ? (
           <>
+            <Link to="/purchase">Cart{cartCount > 0 ? ` (${cartCount})` : ''}</Link>
             <Link to="/dashboard">Dashboard</Link>
             <Link to="/profile">Profile</Link>
             <Link to="/forum">Forum</Link>
